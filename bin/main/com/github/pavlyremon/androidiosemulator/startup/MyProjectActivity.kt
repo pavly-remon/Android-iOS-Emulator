@@ -1,4 +1,4 @@
-package com.github.pavlyremon.androidiosemulator.startup
+package com.PiCode.androidiosemulator.startup
 
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project

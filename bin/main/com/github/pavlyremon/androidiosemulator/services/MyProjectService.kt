@@ -1,9 +1,9 @@
-package com.github.pavlyremon.androidiosemulator.services
+package com.PiCode.androidiosemulator.services
 
 import com.intellij.openapi.components.Service
 import com.intellij.openapi.diagnostic.thisLogger
 import com.intellij.openapi.project.Project
-import com.github.pavlyremon.androidiosemulator.MyBundle
+import com.PiCode.androidiosemulator.MyBundle
 
 @Service(Service.Level.PROJECT)
 class MyProjectService(project: Project) {

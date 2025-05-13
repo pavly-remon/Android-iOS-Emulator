@@ -1,0 +1,30 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.PiCode.androidiosemulator</id>
+    <name>Android-iOS-Emulator</name>
+    <vendor>pavly-remon</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyBundle</resource-bundle>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.PiCode.androidiosemulator.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <postStartupActivity implementation="com.PiCode.androidiosemulator.startup.MyProjectActivity" />
+    </extensions>
+
+    <actions>
+        <action id="StartAndroidEmulatorAction"
+                class="com.PiCode.androidiosemulator.actions.StartAndroidEmulatorAction"
+                text="Start Android Emulator"
+                description="Start Android Emulator">
+            <add-to-group group-id="MainToolbarRight" anchor="last" />
+        </action>
+        <action id="StartIosSimulatorAction"
+                class="com.PiCode.androidiosemulator.actions.StartIosSimulatorAction"
+                text="Start iOS Simulator"
+                description="Start iOS Simulator">
+            <add-to-group group-id="MainToolbarRight" anchor="last" />
+        </action>
+    </actions>
+</idea-plugin>

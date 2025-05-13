@@ -1,4 +1,4 @@
-package com.github.pavlyremon.androidiosemulator
+package com.PiCode.androidiosemulator
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

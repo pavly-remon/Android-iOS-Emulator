@@ -1,7 +1,7 @@
 <idea-plugin>
     <id>com.PiCode.androidiosemulator</id>
     <name>Android-iOS Emulator</name>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <vendor email="pavlyremon@gmail.com" url="https://github.com/pavly-remon">PiCode</vendor>
 
     <description>

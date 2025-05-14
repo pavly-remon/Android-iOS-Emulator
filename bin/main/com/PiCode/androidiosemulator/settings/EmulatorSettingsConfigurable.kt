@@ -8,9 +8,7 @@ import java.awt.Dimension
 import javax.swing.BorderFactory
 import javax.swing.Box
 import javax.swing.BoxLayout
-import javax.swing.JButton
 import javax.swing.JComponent
-import javax.swing.JFileChooser
 import javax.swing.JLabel
 import javax.swing.JPanel
 
@@ -28,13 +26,16 @@ class EmulatorSettingsConfigurable : Configurable {
         val label = JLabel("Set Android SDK Path:")
         label.alignmentX = JLabel.LEFT_ALIGNMENT
 
-        val browseButton = JButton("Browse")
-        browseButton.addActionListener {
-            val fileChooser = JFileChooser()
-            fileChooser.fileSelectionMode = JFileChooser.DIRECTORIES_ONLY
-            val result = fileChooser.showOpenDialog(panel)
-            if (result == JFileChooser.APPROVE_OPTION) {
-                sdkPathField.text = fileChooser.selectedFile.absolutePath
+        // Use setActionListener instead of deprecated addBrowseFolderListener
+        sdkPathField.setActionListener {
+            val descriptor = com.intellij.openapi.fileChooser.FileChooserDescriptorFactory.createSingleFolderDescriptor()
+            val fileChooser = com.intellij.openapi.fileChooser.FileChooser.chooseFile(
+                descriptor,
+                null,
+                null
+            )
+            if (fileChooser != null) {
+                sdkPathField.text = fileChooser.path
             }
         }
         sdkPathField.alignmentX = JLabel.LEFT_ALIGNMENT
@@ -43,8 +44,6 @@ class EmulatorSettingsConfigurable : Configurable {
         panel.add(label)
         panel.add(Box.createRigidArea(Dimension(0, 5))) // Add spacing between label and input
         panel.add(sdkPathField)
-        panel.add(Box.createRigidArea(Dimension(0, 5))) // Add spacing between input and button
-        panel.add(browseButton)
     }
 
     override fun createComponent(): JComponent {
